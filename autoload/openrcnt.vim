@@ -2,8 +2,8 @@
 " License: MIT License
 
 function! openrcnt#filelist()
-  if bufexists(openrcnt#bufname) | return | endif
   let bufname = "__RECENT__"
+  if bufexists(bufname) | return | endif
   execute printf("%s %s", g:openrcnt_opencmd_rcntlist, bufname)
   silent put =v:oldfiles
   silent 1,1delete
