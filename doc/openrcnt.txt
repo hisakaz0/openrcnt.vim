@@ -1,0 +1,84 @@
+*openrcnt.txt* Open recent files more easilly.
+
+                                                     *openrcnt* *openrcnt.vim*
+
+
+                                  OPENRCNT~
+
+
+                                 Version: 1.0
+                                 License: Mit
+                  Author: hisakazu <cantabilehisa@gmail.com>
+                           Last change: 2017 July 02
+
+
+==============================================================================
+CONTENTS                                                *openrcnt-contents*
+
+        1. INTRODUCTION                                 |openrcnt-introduction|
+        2. COMMANDS                                     |openrcnt-commans|
+        3. VARIABLES                                    |openrcnt-variables|
+        4. MAPPINGS                                     |oepnrcnt-mappings|
+
+
+
+==============================================================================
+INTRODUCTION                                           *openrcnt-introduction*
+
+        Openrcnt is a plugin which list the `oldfiles` and open the file
+        recently used. In vim, recently opened files are listed by
+        `:oldfiles`. Then you can find the file which you want to edit, you
+        type `:e #<xx` or `:ar #<xx` `#<yy #<zz` . Algought the way to open
+        files is not compatible for people.  This plugin Openrcnt is that open
+        the files more easier with a few types, and straight oprations.
+
+
+
+==============================================================================
+COMMNANDS                                               *openrcnt-commands*
+
+    `:RecentList`
+        This command opens a new buffer named `__RECNET__`. This buffer lists
+        recently used files. Moving is vim-like. If you want to open a file,
+        then type `l`. In `__RECNET__` buffer, `l` is mapped to
+        <Plug>OpenrcntEditfiles in normal mode. The buffer not permit insert
+        mode. Your actions are only finding files and opening the file.
+
+
+
+==============================================================================
+VARIABLES                                               *openrcnt-variables*
+    `g:openrcnt_opencmd_rcntlist`
+        This variable decide how to open the buffer `__RECENT__`. The variable
+        is used when you invoke the command `:RecentList`.
+        NOTE: Tips of the way to open buffer and window are showed in the
+        section *opening-windows*
+
+        Defaults:
+>
+        g:openrcnt_opencmd_rcntlist = "new"
+<
+
+    `g:openrcnt_opencmd_oldfile`
+        This variable decide how to open the old file with the mapping
+        <Plug>OpenrcntEditfile.
+
+        Defaults: "new"
+>
+         g:openrcnt_opencmd_oldfile = "new"
+<
+
+
+==============================================================================
+MAPPINGS                                                *openrcnt-mappings*
+
+    <Plug>OpenrcntEditfile or `l`
+        Open a recent file under the cursor. In default, `l` is mapped for
+        <Plug>OpenrcntEditfile in `__RECENT__` buffer only.
+
+        Defualts:
+>
+        nmap <buffer> l <Plug>OpenrcntEditfile
+<
+
+ vim:tw=78:sw=4:sts=4:ts=4:ft=help:norl:
